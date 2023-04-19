@@ -1,0 +1,35 @@
+Introduction:
+Today, we'll discuss Docker, a tool that can package software into containers that run reliably in any environment. But before we dive into Docker, let's first understand what a container is and why we need one.
+
+What is a container?
+A container is a lightweight and portable unit of software that packages up code and all its dependencies. Containers allow us to run software reliably in any environment.
+
+Why do we need containers?
+Let's imagine you built an app with Cobalt that runs on some weird flavor of Linux, and you want to share this app with your friend who has an entirely different system. The problem becomes how to replicate the environment our software needs on any machine. One way to package an app is with a virtual machine where the hardware is simulated, then installed with the required OS and dependencies. However, virtual machines tend to be bulky and slow because each VM is running its own operating system.
+
+Here comes Docker
+Docker is a containerization platform that allows us to package software into containers that run reliably in any environment. Conceptually, Docker containers are very similar to VMs, with one key difference; instead of virtualizing hardware, containers only virtualize the OS. All apps or containers are run by a single kernel, which makes almost everything faster and more efficient.
+
+The Three Fundamental Elements of Docker
+There are three fundamental elements in the universe of Docker; the Dockerfile, the image, and the container.
+
+Dockerfile
+The Dockerfile is like DNA. It's just code that tells Docker how to build an image, which itself is a snapshot of your software along with all its dependencies down to the operating system level.
+
+Image
+The image is immutable and can be used to spin up multiple containers, which is your actual software running in the real world.
+
+Container
+The container is an instance of an image. Containers are isolated from each other and from the host system, which makes them secure.
+
+How to create a Docker image?
+To create a Docker image, we first create a Dockerfile and use the 'FROM' command to start from an existing template like Ubuntu. This base image gets pulled down from the cloud, and we can also upload our own images to a variety of different Docker registries. From there, we might want to use 'RUN' to run a terminal command that installs dependencies into our image. We can set environment variables and do all kinds of other stuff. Then the last thing we'll do is set a default command that's executed when we start up a container.
+
+Building a Docker image
+We can create the image file by running the 'docker build' command. It goes through each step in our Dockerfile to build the image layer by layer.
+
+Running a Docker container
+We can then bring this image to life as a container with the 'docker run' command. As our app demands more resources, we can run it on multiple machines, multiple clouds, or on-prem.
+
+Conclusion
+Docker is a powerful tool for packaging software into containers that run reliably in any environment. It allows us to replicate our software's environment on any machine, making deployment and scaling much easier. By understanding the three fundamental elements of Docker; the Dockerfile, the image, and the container, we can build, run, and manage Docker containers like a pro.
